@@ -1,4 +1,4 @@
-package com.example.yao.iakadvanced.Models;
+package com.example.yao.iakadvanced.models;
 
 /**
  * Created by yao on 13/05/17.
