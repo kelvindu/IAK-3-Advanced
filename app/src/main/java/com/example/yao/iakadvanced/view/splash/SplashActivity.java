@@ -3,11 +3,11 @@ package com.example.yao.iakadvanced.view.splash;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.yao.iakadvanced.MainActivity;
 import com.example.yao.iakadvanced.R;
 import com.example.yao.iakadvanced.base.BaseActivity;
 import com.example.yao.iakadvanced.presenter.splash.SplashPresenter;
 import com.example.yao.iakadvanced.presenter.splash.SplashPresenterImp;
+import com.example.yao.iakadvanced.view.main.MainActivity;
 
 public class SplashActivity extends BaseActivity implements SplashView{
     SplashPresenter splashPresenter;
@@ -28,7 +28,6 @@ public class SplashActivity extends BaseActivity implements SplashView{
 
     @Override
     public void openMain() {
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+        openNewActivity(MainActivity.class);
     }
 }
