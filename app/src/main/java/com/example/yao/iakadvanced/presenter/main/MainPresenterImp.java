@@ -17,7 +17,7 @@ public class MainPresenterImp implements MainPresenter {
     MainModel model;
     MainView view;
 
-    public MainPresenterImp(MainModel model, MainView view) {
+    public MainPresenterImp(MainView view) {
         this.model = new MainModelImp();
         this.view = view;
     }
