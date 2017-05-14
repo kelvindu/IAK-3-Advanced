@@ -32,7 +32,7 @@ public class MainListHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(int id, String name){
-        tv_id.setText(id);
+        tv_id.setText(String.valueOf(id));
         tv_name.setText(name);
     }
 }

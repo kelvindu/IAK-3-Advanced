@@ -17,7 +17,7 @@ public class SplashActivity extends BaseActivity implements SplashView{
         super.onCreate(savedInstanceState);
         bind(R.layout.activity_splash);
         splashPresenter = new SplashPresenterImp(this);
-        splashPresenter.waitSplash(5000);
+        splashPresenter.waitSplash(1000);
     }
 
 
@@ -28,7 +28,7 @@ public class SplashActivity extends BaseActivity implements SplashView{
 
     @Override
     public void openMain() {
-//        openNewActivity(MainActivity.class);
-        startActivity(new Intent(this, MainActivity.class));
+        openNewActivity(MainActivity.class);
+        //startActivity(new Intent(this, MainActivity.class));
     }
 }

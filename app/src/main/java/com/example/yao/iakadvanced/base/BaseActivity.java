@@ -28,7 +28,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void openNewActivity(Class activity){
-        startActivity(new Intent(this,activity));
+        startActivity(new Intent(this, activity));
         finish();
     }
 
