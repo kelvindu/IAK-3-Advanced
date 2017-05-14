@@ -2,6 +2,7 @@ package com.example.yao.iakadvanced.holder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.yao.iakadvanced.R;
@@ -14,10 +15,16 @@ import butterknife.ButterKnife;
  */
 
 public class MainListHolder extends RecyclerView.ViewHolder {
+    @BindView(R.id.linear_layout)
+    LinearLayout itemLayout;
     @BindView(R.id.list_id)
     TextView tv_id;
     @BindView(R.id.list_name)
     TextView tv_name;
+
+    public LinearLayout getItemLayout(){
+        return itemLayout;
+    }
 
     public MainListHolder(View itemView) {
         super(itemView);

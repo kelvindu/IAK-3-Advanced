@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 
 import com.example.yao.iakadvanced.R;
 import com.example.yao.iakadvanced.adapter.ListAdapter;
 import com.example.yao.iakadvanced.base.BaseActivity;
+import com.example.yao.iakadvanced.fragment.DialogDetail;
 import com.example.yao.iakadvanced.holder.MainListHolder;
 import com.example.yao.iakadvanced.models.main.MainModelImp;
 import com.example.yao.iakadvanced.presenter.main.MainPresenter;
@@ -60,8 +60,12 @@ public class MainActivity extends BaseActivity implements MainView {
                                               MainModelImp.Data model,
                                               final int i) {
                 holder.bind(model.getId(),model.getName());
-                holder.itemView.setOnClickListener(view -> {
-                    //clicked
+                holder.getItemLayout().setOnClickListener(v -> {
+                    DialogDetail detail = new DialogDetail();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id",String.valueOf(model.getId()));
+                    detail.setArguments(bundle);
+                    detail.show(getFragmentManager(), "Detail");
                 });
             }
         };
