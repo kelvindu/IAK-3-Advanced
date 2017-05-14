@@ -1,5 +1,7 @@
 package com.example.yao.iakadvanced.presenter.main;
 
+import com.example.yao.iakadvanced.models.main.MainModelImp;
+
 import rx.Observable;
 
 /**
@@ -7,5 +9,5 @@ import rx.Observable;
  */
 
 public interface MainPresenter {
-    Observable<String> getResult();
+    Observable<MainModelImp> getResult();
 }

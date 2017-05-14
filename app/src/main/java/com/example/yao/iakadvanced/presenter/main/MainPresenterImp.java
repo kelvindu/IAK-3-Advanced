@@ -5,6 +5,7 @@ import com.example.yao.iakadvanced.models.main.MainModelImp;
 import com.example.yao.iakadvanced.utils.OkHttpTime;
 import com.example.yao.iakadvanced.utils.RxOkhttp;
 import com.example.yao.iakadvanced.view.main.MainView;
+import com.google.gson.Gson;
 
 import okhttp3.Request;
 import rx.Observable;
@@ -23,8 +24,10 @@ public class MainPresenterImp implements MainPresenter {
     }
 
     @Override
-    public Observable<String> getResult() {
+    public Observable<MainModelImp> getResult() {
         Request request = model.build();
-        return RxOkhttp.streamStrings(OkHttpTime.client,request);
+        return RxOkhttp.streamStrings(OkHttpTime.client,request).map(json ->
+            new Gson().fromJson(json, MainModelImp.class)
+        );
     }
 }
