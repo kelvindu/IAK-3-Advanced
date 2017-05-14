@@ -28,6 +28,7 @@ public class SplashActivity extends BaseActivity implements SplashView{
 
     @Override
     public void openMain() {
-        openNewActivity(MainActivity.class);
+//        openNewActivity(MainActivity.class);
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
