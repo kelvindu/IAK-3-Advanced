@@ -13,6 +13,7 @@ import com.example.yao.iakadvanced.R;
 import com.example.yao.iakadvanced.models.dialog.DialogDetailModelImp;
 import com.example.yao.iakadvanced.presenter.dialog.DialogDetailPresenterImp;
 
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Subscription;
@@ -44,12 +45,14 @@ public class DialogDetail extends DialogFragment implements DialogDetailView{
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this,view);
+
         String id = getArguments().getString("id");
+        Log.d(TAG, id);
         subscription = new DialogDetailPresenterImp(this)
                 .getResults(id)
                 .subscribeOn(Schedulers.io())
                 .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe();
+                .subscribe(this::onSuccess, this::onError);
     }
 
     @Override
@@ -60,6 +63,8 @@ public class DialogDetail extends DialogFragment implements DialogDetailView{
 
     @Override
     public void onSuccess(DialogDetailModelImp result) {
+        Log.d(TAG, result.getData().getName());
+        Log.d(TAG, result.getData().getPosition());
         tvDialogName.setText(result.getData().getName());
         tvDialogPosition.setText(result.getData().getPosition());
     }

@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity implements MainView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bind(R.layout.activity_main);
+
         mainPresenter = new MainPresenterImp(this);
         subscription = mainPresenter.getResult()
                 .subscribeOn(Schedulers.io())
